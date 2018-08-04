@@ -1,0 +1,53 @@
+.nav {
+}
+
+.list {
+	margin: 0;
+	padding-left: 0;
+	list-style: none
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	background: none;
+}
+
+
+.link:active,
+.link:hover {
+	background: none;
+}
+
+.linkIcon {
+	height: 1.5em;
+	margin-right: .125em;
+	fill: currentColor;
+}
+
+.linkText {
+	display: inline-block;
+	padding: .125em .25em;
+	background: linear-gradient(to left, transparent calc(50% + 1px), #7dbf38 calc(50% + 1px)) no-repeat 100% 0 / 200% 100%;
+	transition: background-position .25s ease-in-out;
+}
+
+.link:active .linkText,
+.link:hover .linkText {
+	background-image: linear-gradient(to left, transparent 50%, #7dbf38 50%) no-repeat 100% 0 / 200% 100%;
+	background-position: 0 0;
+}
+
+.activeLink {
+	pointer-events: none;
+	color: #474747;
+}
+
+.activeLink .linkText {
+	background: #f3df49;
+}
+
+.activeHomeLink {
+	display: none;
+}

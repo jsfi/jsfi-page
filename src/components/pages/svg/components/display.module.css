@@ -1,0 +1,10 @@
+.svgElement {
+	width: 100%;
+	margin: 1em 0;
+	border: 2px solid currentColor;
+	fill: currentColor;
+}
+
+.preElement {
+	white-space: pre-wrap;
+}

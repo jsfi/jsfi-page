@@ -1,0 +1,35 @@
+.header {
+	min-height: 4em;
+	position: relative
+}
+
+.background {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.corner {
+	display: block;
+	padding: 1em 3em;
+	padding: 2vh 5vw;
+	text-decoration: none;
+	color: #171717;
+}
+
+.corner:hover {
+	color: #171717
+}
+
+.iconLogo {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	height: 6em;
+	height: 10vh;
+	min-height: 50px;
+	font-family: Cousine, monospace;
+	fill: currentColor
+}

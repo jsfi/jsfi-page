@@ -1,0 +1,17 @@
+{
+	"name": "jsfi.io-contrast-ratio",
+	"description": "my website",
+	"version": "1.0.0",
+	"author": "Martin Sachse <martin.sachse@gmail.com>",
+	"dependencies": {
+		"color": "^3.0.0"
+	},
+	"devDependencies": {
+		"@types/color": "^3.0.0"
+	},
+	"peerDependencies": {
+		"prop-types": "^15.6.2",
+		"react": "16.4.1",
+		"react-helmet": "^5.2.0"
+	}
+}

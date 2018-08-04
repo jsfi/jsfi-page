@@ -1,0 +1,33 @@
+.codeLink {
+	text-decoration: none;
+}
+
+.code {
+
+}
+
+.quote {
+	display: block;
+	position: relative;
+	margin-bottom: .5em;
+	padding-left: .75em;
+}
+
+.quote::before {
+	content: "";
+	width: .25em;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background: #7dbf38;
+}
+
+.demoHint {
+	text-align: center;
+}
+
+.demoPath {
+	fill: #7dbf38;
+	transition: 0.2s;
+}

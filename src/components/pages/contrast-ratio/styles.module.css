@@ -1,0 +1,367 @@
+.colorContrast {
+	display: flex;
+	flex-direction: column;
+	min-width: 480px;
+	margin: auto;
+	position: relative;
+	text-align: center;
+	font: 1.5rem/1.5 sans-serif;
+	color: black;
+	background: linear-gradient(
+			45deg,
+			currentColor 25%,
+			transparent 25%,
+			transparent 75%,
+			currentColor 75%,
+			currentColor
+		),
+		linear-gradient(
+				45deg,
+				currentColor 25%,
+				transparent 25%,
+				transparent 75%,
+				currentColor 75%,
+				currentColor
+			)
+			10px 10px;
+	background-color: #eee;
+	background-size: 20px 20px;
+}
+
+.link,
+.link:visited {
+	color: inherit;
+	text-decoration: none;
+}
+
+.title {
+	display: flex;
+	margin: 40px 0 60px;
+	text-transform: lowercase;
+	letter-spacing: -1px;
+	line-height: 1.3;
+}
+
+.titleInner {
+	flex: 1;
+	text-align: left;
+}
+
+.titleInnerFirst {
+	flex: 1;
+	text-align: right;
+}
+
+.titleText {
+	padding: 0.1em 0.4em;
+	background: white;
+	color: black;
+}
+
+.titleTextFirst {
+	background: black;
+	color: white;
+}
+
+.colorControl {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+
+.background,
+.foreground {
+	position: absolute;
+}
+
+.backgroundInner,
+.foregroundInner {
+	display: inline-block;
+	padding: 0.2em 0.5em;
+	border-radius: 0.3em 0.3em 0 0;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	text-shadow: 0 -0.1em 0.1em black;
+	font-size: 70%;
+	font-weight: bold;
+}
+
+.background {
+	right: 50%;
+	text-align: left;
+}
+
+.backgroundInner {
+	margin-left: 1em;
+}
+
+.foreground {
+	left: 50%;
+	text-align: right;
+}
+
+.foregroundInner {
+	margin-right: 1em;
+}
+
+.foregroundInput,
+.backgroundInput {
+	position: relative;
+	display: block;
+	min-width: 8em;
+	padding: 0.2em 0.5em 0.1em;
+	margin-top: -0.1em;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	background: rgba(230, 230, 230, 0.9);
+	color: #333;
+	text-shadow: 0 0.05em 1px white;
+	font: 150% Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
+	box-shadow: 0.05em 0.1em 0.2em rgba(0, 0, 0, 0.4) inset;
+	box-sizing: content-box;
+}
+
+.backgroundInput {
+	padding-right: 2em;
+	margin-right: -0.1em;
+	border-radius: 0.3em 0 0 0.3em;
+	text-align: right;
+}
+
+.foregroundInput {
+	padding-left: 2em;
+	margin-left: -0.1em;
+	border-radius: 0 0.3em 0.3em 0;
+}
+
+.output {
+	display: block;
+	position: relative;
+	width: 3em;
+	padding: 1em 0;
+	border: thin solid rgba(0, 0, 0, 0.4);
+	margin: -0.1em auto 0;
+	background: gray -35% -35%;
+	background-size: 142% 142%;
+	text-align: center;
+	color: white;
+	text-shadow: 0 -0.06em 0.05em rgba(0, 0, 0, 0.5);
+	font: 170%/1 'Arial Unicode MS', sans-serif;
+	letter-spacing: -0.05em;
+	box-shadow: 0.05em 0.1em 0.2em rgba(0, 0, 0, 0.4),
+		-0.1em -0.1em 0.5em rgba(0, 0, 0, 0.4) inset,
+		0 0.3em rgba(255, 255, 255, 0.2) inset;
+	border-radius: 50%;
+}
+
+.ratio {
+	color: #fff;
+}
+
+.error {
+	position: absolute;
+	bottom: 1em;
+	left: 0;
+	right: 0;
+	opacity: 0.8;
+	text-align: center;
+	font-size: 45%;
+	letter-spacing: normal;
+}
+
+.results {
+	position: absolute;
+	left: 50%;
+	width: 18em;
+	padding: 1em 1.5em;
+	border: 1px solid gray;
+	border-radius: 0.5em;
+	margin-left: -9em;
+	margin-top: 0.7em;
+	box-shadow: 0.1em 0.1em 0.8em -0.1em black;
+	background: white;
+	text-align: left;
+	font-size: 65%;
+	transform: scale(0);
+	transform-origin: top;
+	transition: 0.4s transform;
+}
+
+.output:focus + .results,
+.output:hover + .results {
+	transform: none;
+	transition-timing-function: cubic-bezier(0.5, 0, 0.7, 1.8);
+}
+
+.results:before,
+.results:after {
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: 50%;
+	width: 0;
+	height: 0;
+}
+
+.results:before {
+	margin-left: -17px;
+	margin-top: -2px;
+	border: 17px solid transparent;
+	border-top-width: 0;
+	border-bottom-color: gray;
+}
+
+.results:after {
+	margin-left: -16px;
+	margin-top: -1px;
+	border: 16px solid transparent;
+	border-top-width: 0;
+	border-bottom-color: white;
+}
+
+.hint {
+	font-size: 11pt;
+}
+
+.colorDisplays {
+	display: flex;
+	min-height: 100vh;
+}
+
+.colorDisplay {
+	padding: 13em 1em 1em;
+	flex: 1 0 50%;
+	box-sizing: border-box;
+}
+
+.colorDisplayInner {
+	max-width: 26em;
+	font-size: 0.75em;
+}
+
+.colorDisplayTitle {
+	margin-top: 0;
+	font-size: 2em;
+}
+
+.colorDisplayFooter {
+	font-size: 1.333em;
+}
+
+.backgroundDisplay {
+	left: 0;
+	right: 50%;
+	text-align: right;
+	overflow: auto;
+}
+
+.backgroundDisplay .colorDisplayInner {
+	margin-left: auto;
+}
+
+.foregroundDisplay {
+	left: 50%;
+	right: 0;
+	text-align: left;
+}
+
+.swap {
+	padding: 0.2em 0.5em 0.1em;
+	margin-top: 0.6em;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 0.3em;
+	box-shadow: 0 1px #fff inset, 0 0.6em rgba(255, 255, 255, 0.2) inset,
+		-0.1em -0.1em 0.5em rgba(0, 0, 0, 0.4) inset,
+		0 0.3em 0.2em -0.3em rgba(0, 0, 0, 0.5);
+	background: white;
+	background: rgba(204, 204, 204, 0.6);
+	text-shadow: 0 1px 1px white;
+	font: inherit;
+	font-size: 15pt;
+	color: black;
+}
+
+.swap:hover,
+.swap:focus {
+	background: rgba(255, 255, 255, 0.6);
+}
+
+.swap:active {
+	box-shadow: 0 1px rgba(255, 255, 255, 0.3),
+		0 1px 0.3em 0.05em rgba(0, 0, 0, 0.6) inset;
+}
+
+.octo {
+	height: 80px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.octoArm {
+	transform-origin: 130px 106px;
+}
+
+.octo:hover .octoArm {
+	animation: octo-wave 560ms ease-in-out;
+}
+
+@keyframes octo-wave {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	20% {
+		transform: rotate(-25deg);
+	}
+
+	40% {
+		transform: rotate(10deg);
+	}
+
+	60% {
+		transform: rotate(-25deg);
+	}
+
+	80% {
+		transform: rotate(10deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@media (max-width: 500px) {
+	.octoArm {
+		animation: none;
+	}
+}
+
+.canvas {
+	display: none;
+}
+
+@media (max-width: 1023px) {
+	.background {
+		transform: translate(50%, -1.75em);
+	}
+
+	.foreground {
+		transform: translate(-50%, 5em);
+	}
+
+	.backgroundInput,
+	.foregroundInput {
+		text-align: center;
+		border-radius: .3em;
+	}
+
+	.output {
+		margin-top: 2.5em;
+	}
+
+	.colorDisplay {
+		padding-top: 17em;
+	}
+}

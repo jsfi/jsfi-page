@@ -1,0 +1,54 @@
+.form {
+}
+
+.fieldset {
+	margin: 1em 0;
+	padding: .5em 1.25em 1.25em;
+	border: 2px solid currentColor;
+}
+
+.legend {
+	padding: .25em .5em;
+	font-size: 1.125em;
+	color: #fafafa;
+	background: #171717;
+	border: 2px solid #171717;
+}
+
+.element {
+	display: block;
+}
+
+.element + .element,
+.element + .row,
+.row + .element,
+.row + .row {
+	padding-top: .5em;
+}
+
+.row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-gap: 1.25em;
+}
+
+.row .element {
+	padding-top: 0;
+}
+
+.label {
+	display: block;
+	padding: 0 .625em;
+	border: 2px solid transparent;
+}
+
+.input {
+	width: 100%;
+	padding: .5em .625em;
+	border: 2px solid currentColor;
+}
+
+.input:focus {
+	outline: 3px solid #f3df49;
+	outline-offset: 0;
+}

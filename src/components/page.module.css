@@ -1,0 +1,41 @@
+.header {
+	grid-area: header;
+}
+
+.main {
+	grid-area: main;
+}
+
+.side {
+	grid-area: side;
+}
+
+.mainContent, .sideNav {
+	margin: 1.5em 1.5em;
+	margin: 1.5em 5vw;
+}
+
+.footer {
+	grid-area: footer;
+}
+
+@media (min-width: 1024px) {
+	.layout {
+		display: grid;
+		grid-template:	"header header"
+						"side main"
+						"footer footer"
+						/ 35% 65%;
+	}
+
+	.mainContent {
+		max-width: 640px;
+		margin-right: auto;
+	}
+
+	.sideNav {
+		max-width: 320px;
+		margin-right: 0;
+		margin-left: auto;
+	}
+}
