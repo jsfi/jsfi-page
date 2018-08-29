@@ -28,11 +28,17 @@ module.exports = {
 		}
 	},
 	plugins: [ 'import', 'jsx-a11y', 'react' ],
+	settings: {
+		react: {
+			version: '16.4.2'
+		}
+	},
 	rules: {
-		// eslint@5.2.0
+		// eslint@5.4.0
 		// Possible Errors
 		'for-direction': ERROR,
 		'getter-return': ERROR,
+		'no-async-promise-executor': ERROR,
 		'no-await-in-loop': WARN,
 		'no-compare-neg-zero': ERROR,
 		'no-cond-assign': ERROR,
@@ -53,6 +59,7 @@ module.exports = {
 		'no-inner-declarations': ERROR,
 		'no-invalid-regexp': ERROR,
 		'no-irregular-whitespace': ERROR,
+		'no-misleading-character-class': ERROR,
 		'no-obj-calls': ERROR,
 		'no-prototype-builtins': ERROR,
 		'no-regex-spaces': ERROR,
@@ -62,6 +69,7 @@ module.exports = {
 		'no-unreachable': ERROR,
 		'no-unsafe-finally': ERROR,
 		'no-unsafe-negation': ERROR,
+		'require-atomic-updates': ERROR,
 		'use-isnan': ERROR,
 		'valid-jsdoc': [
 			DEBUG,
@@ -162,6 +170,7 @@ module.exports = {
 		'prefer-promise-reject-errors': [ ERROR, { allowEmptyReject: true }],
 		'radix': OFF,
 		'require-await': ERROR,
+		'require-unicode-regexp': OFF,
 		'vars-on-top': ERROR,
 		'wrap-iife': [ ERROR, 'inside' ],
 		'yoda': ERROR,
@@ -340,7 +349,7 @@ module.exports = {
 		'template-curly-spacing': ERROR,
 		'yield-star-spacing': ERROR,
 
-		// eslint-plugin-react@7.10.0
+		// eslint-plugin-react@7.11.1
 		'react/boolean-prop-naming': [ ERROR, { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' }],
 		'react/button-has-type': OFF,
 		'react/default-props-match-prop-types': ERROR,
@@ -452,7 +461,7 @@ module.exports = {
 		'jsx-a11y/scope': ERROR,
 		'jsx-a11y/tabindex-no-positive': ERROR,
 
-		// eslint-plugin-import@2.13.0
+		// eslint-plugin-import@2.14.0
 		'import/no-unresolved': [ ERROR, { ignore: [ '\.css$' ] }],
 		'import/named': ERROR,
 		'import/default': ERROR,
@@ -488,7 +497,7 @@ module.exports = {
 		'import/no-named-default': ERROR,
 		'import/no-default-export': OFF, // see tslint/no-default-export
 		'import/no-anonymous-default-export': ERROR,
-		'import/group-exports': OFF
-		// current master: 'import/dynamic-import-chunkname': ERROR
+		'import/group-exports': OFF,
+		'import/dynamic-import-chunkname': ERROR
 	}
 };
