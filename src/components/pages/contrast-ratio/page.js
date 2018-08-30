@@ -7,6 +7,7 @@ import { ColorDisplays } from './color-displays.js';
 import { GithubCorner } from './github-corner.js';
 import { getColorString } from './color-helpers.js';
 
+import '../../base.css';
 import styles from './styles.module.css';
 
 /**
