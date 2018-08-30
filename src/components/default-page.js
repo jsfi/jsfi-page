@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import favicon from '../assets/favicon.ico';
-
 import { Footer } from './footer.js';
 import { Header } from './header.js';
 import { SideNav } from './side-nav.js';
@@ -20,14 +18,9 @@ import styles from './page.module.css';
 export const DefaultPage = ({ title, children }) => (
 	<React.Fragment>
 		<Helmet>
-			<html lang="en" />
 			<title>
 				{title}
 			</title>
-			<link
-				rel="icon"
-				href={favicon}
-			/>
 		</Helmet>
 		<div className={styles.layout}>
 			<Header className={styles.header} />
