@@ -7,6 +7,15 @@ import textStyles from '../components/text.module.css';
 /* tslint:disable:no-default-export */
 
 const conferences = [{
+	title: '2019',
+	visited: [{
+		name: 'JSConf EU',
+		url: 'http://2019.jsconf.eu/'
+	}, {
+		name: 'CSSconf EU',
+		url: 'http://2019.cssconf.eu/'
+	}]
+}, {
 	title: '2018',
 	visited: [{
 		name: 'componentDidSmoosh',
