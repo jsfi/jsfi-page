@@ -4,14 +4,15 @@
 	"version": "1.0.0",
 	"author": "Martin Sachse <martin.sachse@gmail.com>",
 	"dependencies": {
-		"color": "^3.0.0"
+		"color": "^3.1.2"
 	},
 	"devDependencies": {
 		"@types/color": "^3.0.0"
 	},
 	"peerDependencies": {
-		"prop-types": "^15.6.2",
-		"react": "16.4.1",
-		"react-helmet": "^5.2.0"
+		"prop-types": "^15.7.2",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-helmet": "^5.2.1"
 	}
 }
