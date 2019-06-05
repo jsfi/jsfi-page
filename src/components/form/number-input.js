@@ -13,7 +13,10 @@ const DIRECTION_ASC = 1;
 const DIRECTION_DESC = -1;
 const KEY_DOWN = 40;
 const KEY_UP = 38;
-const DIRECTIONS = { [KEY_UP]: DIRECTION_ASC, [KEY_DOWN]: DIRECTION_DESC };
+const DIRECTIONS = new Map([
+	[ KEY_UP, DIRECTION_ASC ],
+	[ KEY_DOWN, DIRECTION_DESC ]
+]);
 
 /**
  * @param {React.KeyboardEvent<HTMLInputElement>} event
@@ -93,9 +96,7 @@ export class NumberInput extends React.Component {
 	 * @param {React.KeyboardEvent<HTMLInputElement>} event
 	 */
 	handleKeyDown(event) {
-		const direction = DIRECTIONS[
-			event.keyCode
-		];
+		const direction = DIRECTIONS.get(event.keyCode);
 
 		if (!direction) {
 			return;

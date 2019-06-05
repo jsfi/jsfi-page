@@ -24,22 +24,49 @@ const colorKey = property => `${property}Color`;
 
 /**
  * @param {string|null} param
- * @param {string} property
- * @returns {Object}
+ * @returns {Color?}
  */
-const parseColorParam = (param, property) => {
-	const color = {};
-
+const parseColorParam = param => {
 	if (param) {
-		color[valueKey(property)] = param;
-
 		try {
-			color[colorKey(property)] = new Color(param);
+			return new Color(param);
 		} catch (error) { }
 	}
 
-	return color;
+	return null;
 };
+
+/**
+ * @param {Object} colors
+ * @param {string?} backgroundValue
+ * @param {string?} foregroundValue
+ */
+const updateColors = (colors, backgroundValue, foregroundValue) => {
+	if (backgroundValue) {
+		colors.backgroundValue = backgroundValue;
+	}
+
+	const backgroundColor = parseColorParam(backgroundValue);
+	if (backgroundColor) {
+		colors.backgroundColor = backgroundColor;
+	}
+
+	if (foregroundValue) {
+		colors.foregroundValue = foregroundValue;
+	}
+
+	const foregroundColor = parseColorParam(foregroundValue);
+	if (foregroundColor) {
+		colors.foregroundColor = foregroundColor;
+	}
+};
+
+/**
+ * @param {string} backgroundValue
+ * @param {string} foregroundValue
+ * @returns {string}
+ */
+const getTitle = (backgroundValue, foregroundValue) => `${backgroundValue} - ${foregroundValue}`;
 
 const shiftMultiplier = 10;
 
@@ -95,11 +122,7 @@ export class ContrastRatio extends React.Component {
 			const params = new URLSearchParams(document.location.search.substring(1));
 			this.searchParams = params;
 
-			Object.assign(
-				colors,
-				parseColorParam(params.get('bg'), 'background'),
-				parseColorParam(params.get('fg'), 'foreground')
-			);
+			updateColors(colors, params.get('bg'), params.get('fg'));
 		}
 
 		return colors;
@@ -209,10 +232,10 @@ export class ContrastRatio extends React.Component {
 			this.popstateListener = () => {
 				const popParams = new URLSearchParams(document.location.search.substring(1));
 
-				this.setState(() => ({
-					...parseColorParam(popParams.get('bg'), 'background'),
-					...parseColorParam(popParams.get('fg'), 'foreground')
-				}));
+				const updatedColors = {};
+				updateColors(updatedColors, popParams.get('bg'), popParams.get('fg'));
+
+				this.setState(() => (updatedColors));
 			};
 			window.addEventListener('popstate', this.popstateListener);
 		}
@@ -245,12 +268,9 @@ export class ContrastRatio extends React.Component {
 				this.searchParams.set('bg', backgroundValue);
 				this.searchParams.set('fg', foregroundValue);
 
+				const title = getTitle(backgroundValue, foregroundValue);
 				const url = `${lastUrl}?${this.searchParams.toString()}`;
-
-				// Defer the update so the title has enough time to update
-				requestAnimationFrame(() => {
-					history.replaceState(void 0, void 0, url);
-				});
+				history.replaceState(void 0, title, url);
 			}
 		}
 	}
@@ -279,9 +299,7 @@ export class ContrastRatio extends React.Component {
 			<div className={styles.colorContrast}>
 				<Helmet>
 					<title>
-						{backgroundValue}
-						{' - '}
-						{foregroundValue}
+						{getTitle(backgroundValue, foregroundValue)}
 					</title>
 					<link
 						rel="icon"
